@@ -1,0 +1,52 @@
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+dt, dd {
+  display: inline-block;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 10px;
+  margin-right: 40px;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.section-hd {
+  background: #ccc;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.info-wrapper {
+  overflow: hidden;
+  margin-bottom: 1px;
+}
+
+.info-title {
+  float: left;
+  background-color: #e8e8e8;
+  margin: 0;
+  width: 120px;
+  height: 120px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 120px;
+  box-sizing: border-box;
+}
+
+.info-content {
+  overflow: hidden;
+}
+
+ul.info-content h3, ul.info-content p {
+  display: inline-block;
+}

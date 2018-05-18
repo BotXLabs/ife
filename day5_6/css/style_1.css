@@ -1,0 +1,13 @@
+.info-wrapper dt,
+.info-wrapper dd {
+  display: inline-block;
+}
+
+.info-wrapper dt {
+  font-weight: bold;
+}
+
+.info-wrapper dd {
+  margin-left: 10px;
+  margin-right: 40px;
+}
