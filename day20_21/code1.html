@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>让你和页面对话</title>
+</head>
+<body>
+  <section>
+    <h2>编码1</h2>
+    <input id="name" type="text">    
+    <button id="submit-btn">Submit</button>
+    <script>
+      let nameInput = document.getElementById('name')
+      function printName() {
+        let name = nameInput.value
+        console.log(name)
+      }
+      document.getElementById('submit-btn').addEventListener('click', printName)
+      nameInput.addEventListener('keydown' ,function(e) {
+        console.log(e)
+        if (e.keyCode === 13) {
+          printName()
+        } else if (e.keyCode === 27) {
+          nameInput.value = ''
+        }
+      })
+    </script>
+  </section>
+</body>
+</html>

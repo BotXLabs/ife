@@ -11,3 +11,5 @@
 [第十七天到第十八天，“如果”可以“重来”](https://botxlabs.github.io/ife/day17_18/)
 
 [第十九天：找到那个DOM](https://botxlabs.github.io/ife/day19/)
+
+[第二十到第二十一天：让你和页面对话](https://botxlabs.github.io/ife/day20_21/code6.html)

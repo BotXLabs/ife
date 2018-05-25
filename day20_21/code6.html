@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Sprite</title>
+</head>
+<body>
+  <div id="app" style="width: 480px;height: 480px;background: url(erik.jpg) 0 0 no-repeat;"></div>
+  <script>
+    let app = document.getElementById('app')
+    let id = setInterval(function() {
+      let positionY = app.style.backgroundPositionY
+      positionY = parseInt(positionY) - 480
+      if (positionY <= -8140) {
+        positionY = 0
+      }
+      app.style.backgroundPositionY = positionY + 'px'
+    }, 80)
+  </script>
+</body>
+</html>

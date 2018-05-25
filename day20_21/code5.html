@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>淡出淡入</title>
+</head>
+<body>
+  <div id="fade-obj" style="width:300px;height:300px;background:#000;opacity:1;"></div>
+  <button id="fade-btn">淡出</button>
+  <script>
+    let fadeObj = document.getElementById('fade-obj')
+    let fadeBtn = document.getElementById('fade-btn')
+    let nextAction = 'FADE_OUT'
+    let fadeBtnMap = {
+      'FADE_OUT': {
+        text: '淡出',
+        action: fadeOut
+      },
+      'FADE_IN': {
+        text: '淡入',
+        action: fadeIn
+      }
+    }
+
+    function toggleBtnState(state) {
+      fadeBtn.disabled = state
+      if (!state) {
+        fadeBtn.textContent = fadeBtnMap[nextAction].text
+      }
+    }
+
+    function fadeOut() {
+      nextAction = 'FADE_IN'
+      toggleBtnState(true)
+      let id = setInterval(function() {
+        let opacity = fadeObj.style.opacity
+        opacity = opacity - 0.1
+        if (opacity < 0) {
+          clearInterval(id)
+          toggleBtnState(false)
+        } else {
+          fadeObj.style.opacity = opacity
+        }
+      }, 100)
+    }
+
+    function fadeIn() {
+      nextAction = 'FADE_OUT'
+      toggleBtnState(true)
+      let id = setInterval(function() {
+        let opacity = fadeObj.style.opacity
+        opacity = +opacity + 0.1
+        if (opacity > 1) {
+          clearInterval(id)
+          toggleBtnState(false)
+        } else {
+          fadeObj.style.opacity = opacity
+        }
+      }, 100)
+    }
+
+    fadeBtn.onclick = function() {
+      fadeBtnMap[nextAction].action()
+    }
+  </script>
+</body>
+</html>
