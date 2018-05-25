@@ -26,7 +26,9 @@
         var tr = document.createElement('tr');
         for (var j = 1; j <= 9; j++) {
           var td = document.createElement('td');
-          td.innerHTML = j * i;
+          if (j <= i) {
+            td.innerHTML = `${i} * ${j} = ${i*j}`;
+          }
           tr.appendChild(td);
         }
         tbody.appendChild(tr);
