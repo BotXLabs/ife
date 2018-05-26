@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ife</title>
+</head>
+
+<body>
+  <script>
+    /*
+    实现一个字符串头尾去除空格的函数
+    注意需要去除的空格，包括全角、半角空格
+    暂时不需要学习和使用正则表达式的方式
+    */
+    function diyTrim(str) {
+      var result = ""
+
+      // do something
+      var len = str.length
+      var i = 0
+      var j = len - 1
+
+      function isSpace(character) {
+        var code = character.charCodeAt(0)
+        return code == 32 || code == 12288
+      }
+
+      for (; i < len; i++) {
+        var curChar = str.substr(i, 1)
+        if (!isSpace(curChar)) {
+          break
+        }
+      }
+
+      for (; j > i; j--) {
+        var curChar = str.substr(j, 1)
+        if (!isSpace(curChar)) {
+          break
+        }
+      }
+
+      return str.substring(i, j + 1)
+    }
+
+    // 测试用例
+    console.log(diyTrim(' a f b    ') === 'a f b'); // ->a f b
+    console.log(diyTrim('    ffdaf    ') === 'ffdaf'); // ->ffdaf
+    console.log(diyTrim('1    ') === '1'); // ->1
+    console.log(diyTrim('　　f') === 'f'); // ->f
+    console.log(diyTrim('  　  a f b 　　 ') === 'a f b'); // ->a f b
+    console.log(diyTrim(' ') === ''); // ->
+    console.log(diyTrim('　') === ''); // ->
+    console.log(diyTrim('') === ''); // ->
+
+    /*
+    去掉字符串str中，连续重复的地方
+    */
+    function removeRepetition(str) {
+      var result = ""
+
+      // do something
+      var len = str.length
+      var i = 0
+      var curRepetition
+      for (; i < len; i++) {
+        var character = str.substr(i, 1)
+        if (character !== curRepetition) {
+          result += character
+          curRepetition = character
+        }
+      }
+
+      return result
+    }
+
+    // 测试用例
+    console.log(removeRepetition("aaa") === 'a'); // ->a
+    console.log(removeRepetition("abbba") === 'aba'); // ->aba
+    console.log(removeRepetition("aabbaabb") === 'abab'); // ->abab
+    console.log(removeRepetition("") === ''); // ->
+    console.log(removeRepetition("abc") === 'abc'); // ->abc
+  </script>
+</body>
+
+</html>

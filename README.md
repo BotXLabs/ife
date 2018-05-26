@@ -13,3 +13,5 @@
 [第十九天：找到那个DOM](https://botxlabs.github.io/ife/day19/)
 
 [第二十到第二十一天：让你和页面对话](https://botxlabs.github.io/ife/day20_21/code6.html)
+
+[第二十二天到第二十四天：JavaScript里面的居民们](https://botxlabs.github.io/ife/day22_24/code3.html)
