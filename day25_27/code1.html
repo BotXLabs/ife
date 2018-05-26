@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数</title>
+</head>
+
+<body>
+  <script>
+    function Go() {
+      console.log("Go");
+    }
+
+    function GoSteps(n = 1) {
+      var ret = 0
+
+      if (n === true) {
+        n = 1
+      }
+
+      if (typeof n !== 'number' || isNaN(n) || n < 0) {
+        n = 0
+      }
+
+      n = Math.floor(n)
+
+      while (n--) {
+        Go()
+        ret++
+      }
+      return ret
+    }
+
+    console.log(GoSteps(10) === 10); // Go 10次
+    console.log(GoSteps(1) === 1); // Go 1次
+    console.log(GoSteps() === 1); // Go 1次，认为缺少参数时，默认参数为1
+    console.log(GoSteps(0) === 0); // 0次
+    console.log(GoSteps(-1) === 0); // 0次
+    console.log(GoSteps(1.4) === 1); // Go 1次
+    console.log(GoSteps(1.6) === 1); // Go 1次
+    console.log(GoSteps(-1) === 0); // 0次
+    console.log(GoSteps(true) === 1); // Go 1次
+    console.log(GoSteps(false) === 0); // 0次
+    console.log(GoSteps("Test") === 0); // 0次
+    console.log(GoSteps(NaN) === 0); // 0次
+    console.log(GoSteps(null) === 0); // 0次
+  </script>
+</body>
+
+</html>
