@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用数组来实现队列</title>
+</head>
+
+<body>
+  <input id="queue-input" type="text">
+  <p id="queue-cont">队列内容：apple&lt;-pear</p>
+  <button id="in-btn">入队</button>
+  <button id="out-btn">出队</button>
+  <button id="font-btn">打印队头元素内容</button>
+  <button id="empty-btn">判断队列是否为空</button>
+
+  <script>
+    var queue = ["apple", "pear"]
+    var queueInput = document.getElementById('queue-input')
+    var queueCont = document.getElementById('queue-cont')
+
+    function showQueueResult() {
+      var ret = queue.join('&lt;-')
+      queueCont.innerHTML = '队列内容：' + ret
+    }
+
+    function isQueueEmpty() {
+      return queue.length
+    }
+
+    document.body.addEventListener('click', function(e) {
+      switch (e.target.id) {
+        case 'in-btn':
+          var newData = queueInput.value.trim()
+          if (!newData) {
+            alert('请输入有效内容!')
+            return
+          }
+          queue.unshift(newData)
+          showQueueResult()
+          break
+        case 'out-btn':
+          if (!isQueueEmpty()) {
+            alert('队列为空!')
+            return
+          }
+          queue.pop()
+          showQueueResult()
+          break
+        case 'font-btn':
+          if (!isQueueEmpty()) {
+            alert('队列为空!')
+            return
+          }
+          console.log(queue[0])
+          break
+        case 'empty-btn':
+          if (!isQueueEmpty()) {
+            alert('队列为空!')
+          } else {
+            alert('对列非空')
+          }
+          break
+      
+        default:
+          break
+      }
+    })
+  </script>
+</body>
+
+</html>

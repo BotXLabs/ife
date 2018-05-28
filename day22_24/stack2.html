@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>使用数组来实现栈</title>
+</head>
+
+<body>
+  <input id="stack-input" type="text">
+  <p id="stack-cont">栈内容：apple&lt;-pear</p>    
+  <button id="push-btn">进栈</button>
+  <button id="pop-btn">退栈</button>
+  <button id="font-btn">打印栈顶元素内容</button>
+  <button id="empty-btn">判断栈是否为空</button>
+
+  <script>
+    var stack = ["apple", "pear"]
+    var stackInput = document.getElementById('stack-input')
+    var stackCont = document.getElementById('stack-cont')
+
+    function showStackResult() {
+      var ret = stack.join('&lt;-')
+      stackCont.innerHTML = '栈内容：' + ret
+    }
+
+    function isStackEmpty() {
+      return stack.length
+    }
+
+    document.body.addEventListener('click', function(e) {
+      switch (e.target.id) {
+        case 'push-btn':
+          var newData = stackInput.value.trim()
+          if (!newData) {
+            alert('请输入有效内容!')
+            return
+          }
+          stack.unshift(newData)
+          showStackResult()
+          break
+        case 'pop-btn':
+          if (!isStackEmpty()) {
+            alert('栈为空!')
+            return
+          }
+          stack.shift()
+          showStackResult()
+          break
+        case 'font-btn':
+          if (!isStackEmpty()) {
+            alert('栈为空!')
+            return
+          }
+          console.log(stack[0])
+          break
+        case 'empty-btn':
+          if (!isStackEmpty()) {
+            alert('栈为空!')
+          } else {
+            alert('对列非空')
+          }
+          break
+      
+        default:
+          break
+      }
+    })
+  </script>
+</body>
+
+</html>

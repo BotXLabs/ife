@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象转为数组</title>
+</head>
+
+<body>
+  <script>
+    var scoreObject = {
+      "Tony": {
+        "Math": 95,
+        "English": 79,
+        "Music": 68
+      },
+      "Simon": {
+        "Math": 100,
+        "English": 95,
+        "Music": 98
+      },
+      "Annie": {
+        "Math": 54,
+        "English": 65,
+        "Music": 88
+      }
+    }
+
+    function transScoreObjectArray(object) {
+      if (!object) {
+        return null
+      }
+      var ret = []
+      for (var name in object) {
+        var temp = []
+        if (object.hasOwnProperty(name)) {
+          temp.push(name)
+          var scoreObj = object[name]
+          for (var subject in scoreObj) {
+            if (scoreObj.hasOwnProperty(subject)) {
+              temp.push(scoreObj[subject])
+            }
+          }
+        }
+        ret.push(temp)
+      }
+      return ret
+    }
+    console.log(transScoreObjectArray(scoreObject))
+  </script>
+
+  <script>
+    var menuArr = [
+      [1, "Area1", -1],
+      [2, "Area2", -1],
+      [3, "Area1-1", 1],
+      [4, "Area1-2", 1],
+      [5, "Area2-1", 2],
+      [6, "Area2-2", 2],
+      [7, "Area1-2-3", 4],
+      [8, "Area2-2-1", 6],
+    ]
+
+    function transMenuArrToObject(menuArray) {
+      var ret = {}
+      for (var len = menuArray.length, i = len - 1; i >= 0; i--) {
+        var menu = menuArray[i]
+        var index = menu[0]
+        var name = menu[1]
+        var parent = menu[2]
+        if (parent > 0) {
+          if (ret[index]) {
+            var stored = {
+              [index]: ret[index]
+            }
+            delete ret[index]
+            stored.name = name
+            ret[parent] = {
+              subMenu: stored
+            }
+          } else {
+            if (!ret[parent]) {
+              ret[parent] = {
+                subMenu: {
+                  [index]: {
+                    name: name
+                  }
+                }
+              }
+            } else {
+              ret[parent]['subMenu'][index] = {
+                name: name
+              }
+            }
+          }
+        } else {
+          ret[index]['name'] = name
+        }
+      }
+      return ret
+    }
+
+    console.log(transMenuArrToObject(menuArr))
+  </script>
+</body>
+
+</html>

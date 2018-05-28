@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象</title>
+</head>
+
+<body>
+  <script>
+    var tree = {
+      "id": 0,
+      "name": "root",
+      "left": {
+        "id": 1,
+        "name": "Simon",
+        "left": {
+          "id": 3,
+          "name": "Carl",
+          "left": {
+            "id": 7,
+            "name": "Lee",
+            "left": {
+              "id": 11,
+              "name": "Fate"
+            }
+          },
+          "right": {
+            "id": 8,
+            "name": "Annie",
+            "left": {
+              "id": 12,
+              "name": "Saber"
+            }
+          }
+        },
+        "right": {
+          "id": 4,
+          "name": "Tony",
+          "left": {
+            "id": 9,
+            "name": "Candy"
+          }
+        }
+      },
+      "right": {
+        "id": 2,
+        "name": "right",
+        "left": {
+          "id": 5,
+          "name": "Carl",
+        },
+        "right": {
+          "id": 6,
+          "name": "Carl",
+          "right": {
+            "id": 10,
+            "name": "Kai"
+          }
+        }
+      }
+    }
+
+    // 假设id和name均不会重复，根据输入name找到对应的id
+    function findIdByName(name) {
+      function findIdByNameInTree(tree, name) {
+        if (!tree) {
+          return null
+        } else if (tree.name === name) {
+          return tree.id
+        } else {
+          let id = findIdByNameInTree(tree.left, name)
+          return id !== null ? id : findIdByNameInTree(tree.right, name)
+        }
+      }
+      return findIdByNameInTree(tree, name)
+    }
+
+    // 假设id和name均不会重复，根据输入id找到对应的name
+    function findNameById(id) {
+      function findNameByIdInTree(tree, id) {
+        if (!tree) {
+          return null
+        } else if (tree.id === id) {
+          return tree.name
+        } else {
+          let name = findNameByIdInTree(tree.left, id)
+          return name !== null ? name : findNameByIdInTree(tree.right, id)
+        }
+      }
+      return findNameByIdInTree(tree, id)
+    }
+
+    // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+    function getListWithDLR() {
+      function getListWithDLRInTree(tree) {
+        if (!tree) {
+          return
+        } else {
+          console.log(tree.name)
+          getListWithDLRInTree(tree.left)
+          getListWithDLRInTree(tree.right)
+        }
+      }
+      getListWithDLRInTree(tree)
+    }
+
+    // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+    function getListWithLDR() {
+      function getListWithLDRInTree(tree) {
+        if (!tree) {
+          return
+        } else {
+          getListWithLDRInTree(tree.left)
+          console.log(tree.name)
+          getListWithLDRInTree(tree.right)
+        }
+      }
+      getListWithLDRInTree(tree)
+    }
+
+    // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+    function getListWithLRD() {
+      function getListWithLRDInTree(tree) {
+        if (!tree) {
+          return
+        } else {
+          getListWithLRDInTree(tree.left)
+          getListWithLRDInTree(tree.right)
+          console.log(tree.name)
+        }
+      }
+      getListWithLRDInTree(tree)
+    }
+
+
+    // test findIdByName
+    console.log('===== test findIdByName start =====')
+    console.log(findIdByName('root') === 0)
+    console.log(findIdByName('Simon') === 1)
+    console.log(findIdByName('Candy') === 9)
+    console.log(findIdByName('Kai') === 10)
+    console.log(findIdByName('asdasdas') === null)
+    console.log('===== test findIdByName end =====')
+
+
+    // test findNameById
+    console.log('===== test findNameById start =====')
+    console.log(findNameById(0) === 'root')
+    console.log(findNameById(1) === 'Simon')
+    console.log(findNameById(9) === 'Candy')
+    console.log(findNameById(10) === 'Kai')
+    console.log(findNameById(10000) === null)
+    console.log('===== test findNameById end =====')
+
+    // test getListWithDLR
+    // console.log('===== test getListWithDLR start =====')
+    // console.log('===== test getListWithDLR end =====')
+  </script>
+</body>
+
+</html>
