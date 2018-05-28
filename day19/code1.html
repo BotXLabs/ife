@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>IFE ECMAScript</title>
+  <style>
+    button {
+      display: block;
+      margin-top: 20px;
+    }
+    .border {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="news-top" class="section">
+      <h3>Some title</h3>
+      <div class="content">
+        <ul>
+          <li>
+            <span>HTML</span>
+            <a href="">Some Link1</a>
+          </li>
+          <li>
+            <span>JS</span>
+            <a class="active" href="">Some Link2</a>
+          </li>
+          <li>
+            <span>CSS</span>
+            <a href="">Some Link3</a>
+          </li>
+          <li>
+            <span>JS</span>
+            <a href="">Some Link4</a>
+          </li>
+        </ul>
+      </div>
+      <img src="">
+      <p class="">Some Text</p>
+    </div>
+    <div id="news-normal" class="section">
+      <h3>Some title</h3>
+      <div class="content">
+        <ul>
+          <li>
+            <span>HTML</span>
+            <a href="">Some Link1</a>
+          </li>
+          <li>
+            <span>HTML</span>
+            <a href="">Some Link2</a>
+          </li>
+          <li>
+            <span>JS</span>
+            <a class="active" href="#">Some Link3</a>
+          </li>
+          <li>
+            <span>CSS</span>
+            <a href="">Some Link4</a>
+          </li>
+        </ul>
+      </div>
+      <img src="">
+      <p class="">Some Text</p>
+    </div>
+    <input type="radio" name="section" id="top" checked onclick="onRadioChange(this)"><label for="news-top">news top</label>
+    <input type="radio" name="section" id="normal" onclick="onRadioChange(this)"><label for="news-normal">news normal</label>
+    <br>
+    <label for="content">spanCont</label>
+    <input type="text" name="content" id="content" value="HTML" onchange=onContentChange(this)>
+    <button onclick="clearBorder()">清除边框</button>
+    <button onclick="getAllListItem()">返回页面中所有li标签</button>
+    <button onclick="findAllHtmlSpanInOneSection()">返回某个section下所有span中内容为HTML的span标签</button>
+    <button onclick="findListItem()">返回某个section下，所有所包含span内容为spanCont的LI标签</button>
+    <button onclick="getActiveLinkContent()">返回某个section下，class为active的链接中包含的文字内容</button>
+  </div>
+  <script>
+    let curSection = 'news-top'
+    let curContent = 'HTML'
+
+    function onRadioChange(e) {
+      curSection = `news-${e.id}`
+    }
+
+    function onContentChange(e) {
+      curContent = e.value
+    }
+
+    function clearBorder() {
+      let eles = document.querySelectorAll('*')
+      for (let ele of eles) {
+        ele.classList.remove('border')
+      } 
+    }
+    
+    function addBorder(ele) {
+      ele.classList.add('border')
+    }
+
+    function getAllListItem() {
+      clearBorder()
+      // 返回页面中所有li标签
+      let lis = document.getElementsByTagName('li')
+      for (let i = 0, len = lis.length; i < len; i++) {
+        let li = lis[i]
+        addBorder(li)
+      }
+      return lis
+    }
+
+    function findAllHtmlSpanInOneSection(sectionId) {
+      clearBorder()
+      // 返回某个section下所有span中内容为HTML的span标签
+      let section = document.getElementById(sectionId || curSection) 
+      let ret = []
+      if (section) {
+        let spans = section.getElementsByTagName('span')
+        for (let i = 0; i < spans.length; i++) {
+          var span = spans[i]
+          if (span.textContent === 'HTML') {
+            addBorder(span)
+            ret.push(span)
+          }
+        }
+      }
+      return ret
+    }
+
+    function findListItem(sectionId, spanCont) {
+      clearBorder()
+      // 返回某个section下，所有所包含span内容为spanCont的LI标签
+      let section = document.getElementById(sectionId || curSection) 
+      let ret = []
+      if (section) {
+        let spans = section.getElementsByTagName('span')
+        for (let i = 0; i < spans.length; i++) {
+          var span = spans[i]
+          if (span.textContent === (spanCont || curContent)) {
+            addBorder(span.parentNode)
+            ret.push(span.parentNode)
+          }
+        }
+      }
+      return ret
+    }
+
+    function getActiveLinkContent(sectionId) {
+      clearBorder()
+      // 返回某个section下，class为active的链接中包含的文字内容
+      let section = document.getElementById(sectionId || curSection) 
+      let ret = null
+      if (section) {
+        let links = section.getElementsByTagName('a')
+        for (let i = 0; i < links.length; i++) {
+          var link = links[i]
+          if (link.className === 'active') {
+            addBorder(link)
+            ret = link.textContent
+          }
+        }
+      }
+      return ret
+    }
+  </script>
+
+</body>
+
+</html>
