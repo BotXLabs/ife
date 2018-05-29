@@ -17,3 +17,5 @@
 [第二十二天到第二十四天：JavaScript里面的居民们](https://botxlabs.github.io/ife/day22_24/code3.html)
 
 [第二十五天到第二十七天 倒数开始 滴答滴 滴答滴](https://botxlabs.github.io/ife/day25_27/code1.html)
+
+[第二十八天到第三十天 给爱的人发个邮件吧](https://botxlabs.github.io/ife/day28_30/)

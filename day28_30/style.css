@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  margin: 40px;
+  width: 200px;
+  position: relative;
+}
+
+.wrapper input {
+  font-size: 14px;
+  border: 1px solid rgba(38,35,33,0.2);
+  width: 100%;
+  padding: 8px 10px;
+  outline: none;
+}
+
+.email-sug {
+  overflow: hidden;
+  display: none;
+  border: 1px solid rgba(38,35,33,0.2);
+  border-top: none;
+  position: absolute;
+  left: 0;
+  top: 35px;
+  right: 0;
+}
+
+.email-sug li {
+  padding: 0 10px;
+  line-height: 24px;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.email-sug li:hover {
+  background-color: #B1D6E6;
+}
+
+.email-sug li.active {
+  background-color: #FEB8C4;
+}
