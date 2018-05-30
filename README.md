@@ -19,3 +19,5 @@
 [第二十五天到第二十七天 倒数开始 滴答滴 滴答滴](https://botxlabs.github.io/ife/day25_27/code1.html)
 
 [第二十八天到第三十天 给爱的人发个邮件吧](https://botxlabs.github.io/ife/day28_30/)
+
+[第三十一到第三十三天：我是精明的小卖家（一）](https://botxlabs.github.io/ife/day31_33/v2/)

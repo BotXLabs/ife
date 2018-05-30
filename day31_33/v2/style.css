@@ -1,0 +1,15 @@
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+table, tr, td {
+  border: 1px solid black;
+}
+
+#table-wrapper {
+  margin-top: 30px;
+}
