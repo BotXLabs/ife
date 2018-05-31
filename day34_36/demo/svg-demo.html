@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG</title>
+  <style>
+    svg {
+      background-color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <line x1="20" x2="180" y1="20" y2="180" stroke="red" fill="transparent" stroke-width="5" />
+  </svg>
+  <svg width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="10" width="120" height="80" stroke="red" fill="transparent" stroke-width="5"/>
+  </svg>
+  <svg width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="80" fill="red" stroke-width="6"/>
+  </svg>
+  <svg width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <text x="100" y="140" font-size="80" text-anchor="middle" fill="white">SVG</text>
+  </svg>
+  <svg width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="100" cy="100" rx="80" ry="20" stroke="red" fill="red" stroke-width="2" />
+    <ellipse cx="100" cy="100" rx="80" ry="20" stroke="red" fill="red" stroke-width="2" transform='rotate(45 100 100)' />
+    <ellipse cx="100" cy="100" rx="80" ry="20" stroke="red" fill="red" stroke-width="2" transform='rotate(90 100 100)' />
+    <ellipse cx="100" cy="100" rx="80" ry="20" stroke="red" fill="red" stroke-width="2" transform='rotate(135 100 100)' />
+    <ellipse cx="100" cy="100" rx="80" ry="20" stroke="red" fill="red" stroke-width="2" transform='rotate(180 100 100)' />
+  </svg>
+  <svg width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 10 L 10 100 L 190 100 Z" stroke="green" stroke-width="5" />
+    <path d="M100 100 V 190" stroke="green" stroke-width="5" />
+  </svg>
+</body>
+
+</html>

@@ -21,3 +21,5 @@
 [第二十八天到第三十天 给爱的人发个邮件吧](https://botxlabs.github.io/ife/day28_30/)
 
 [第三十一到第三十三天：我是精明的小卖家（一）](https://botxlabs.github.io/ife/day31_33/v2/)
+
+[第三十四天到第三十六天：我是精明的小卖家（二）](https://botxlabs.github.io/ife/day34_36/svg/)

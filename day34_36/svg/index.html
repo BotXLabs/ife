@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG Bar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <script src="ife31data.js"></script>
+  <script src="bar.js"></script>
+  <script>
+    let yAxisData = sourceData[0].sale
+    let xAxisData = Array.from({length: 12}, (v, k) => (k+1) + '月')
+    drawBar({
+      xAxisData,
+      yAxisData
+    })
+  </script>
+</body>
+</html>
