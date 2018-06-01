@@ -1,0 +1,43 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+table, tr, th, td {
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #ddd;
+}
+
+tr:hover{
+  background: #eee;
+}
+
+#table-wrapper {
+  margin-top: 30px;
+}
+
+#bar-chart-wrapper, #line-chart-wrapper {
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+
+form {
+  overflow: hidden;
+  width: 100%;
+}
+
+form .form-item {
+  float: left;
+  margin-right: 20px;
+}
+
