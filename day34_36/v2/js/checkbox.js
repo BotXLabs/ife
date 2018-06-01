@@ -34,7 +34,7 @@ function createCheckBoxGroup(wrapper, data) {
       '<input type="checkbox" value="',
       value,
       '"',
-      i === 0 ? ' checked' : '',
+      // i === 0 ? ' checked' : '',
       '>',
       '<label>',
       text,
@@ -76,4 +76,6 @@ function createCheckBoxGroup(wrapper, data) {
       }
     }
   }
+
+  selectAllCbx.click()
 }
