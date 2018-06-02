@@ -109,7 +109,7 @@ wrapper.onclick = function(e) {
   let needStop = false
   if (target.classList.contains('editable')) {
     let content = target.innerHTML
-    target.innerHTML = `<input type="text" value="${content}"><button class="cancel">取消</button><button class="submit">确定</button>`
+    target.innerHTML = `<input type="text" placeholder="${content}"><button class="cancel">取消</button><button class="submit">确定</button>`
     target.classList.remove('editable')
     target.classList.add('editing')
     resetCurEditingTd(target, content)
@@ -117,6 +117,7 @@ wrapper.onclick = function(e) {
     curEditingTdVal = content
     needStop = true
     curInput = target.querySelector('input')
+    curInput.focus()
     // console.log(curInput)
     bindKeyboardEvent()
   } else if (target.classList.contains('cancel')) {
