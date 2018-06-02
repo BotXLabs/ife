@@ -23,3 +23,5 @@
 [第三十一到第三十三天：我是精明的小卖家（一）](https://botxlabs.github.io/ife/fe/day31_33/v2/)
 
 [第三十四天到第三十六天：我是精明的小卖家（二）](https://botxlabs.github.io/ife/fe/day34_36/v3/dist/)
+
+[第三十七天到第三十八天：我是精明的小卖家（三）](https://botxlabs.github.io/ife/fe/day37_38/dist/)
