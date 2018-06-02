@@ -1,4 +1,4 @@
-import { drawLine, drawCircle, drawText, ratio } from './canvas'
+import { drawLine, drawCircle, drawText, ratio, clear } from './canvas'
 
 let lineChart = {
   init: function(wrapperId, options) {
@@ -97,6 +97,7 @@ let lineChart = {
   setData: function(series) {
     // this.xAxisData = xAxisData
     this.series = series
+    clear(this.canvas)
     this.draw()
   }
 }

@@ -28,3 +28,8 @@ export function drawCircle(ctx, cx, cy, radius) {
   ctx.arc(cx, cy, radius, 0, Math.PI * 2, true)
   ctx.fill()
 }
+
+export function clear(canvas) {
+  const context = canvas.getContext('2d')
+  context.clearRect(0, 0, canvas.width, canvas.height)
+}
